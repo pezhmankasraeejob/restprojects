@@ -1,5 +1,6 @@
 package se.sigmatechnology;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -11,6 +12,6 @@ public class UniversityApplication
 {
     public static void main( String[] args )
     {
-        // TODO: 2017-09-15  
+        SpringApplication.run(UniversityApplication.class, args);
     }
 }
