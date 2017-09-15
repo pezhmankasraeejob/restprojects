@@ -4,10 +4,11 @@ package se.sigmatechnology;
  * Hello world!
  *
  */
-public class App 
+
+public class UniversityApplication
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        // TODO: 2017-09-15  
     }
 }
