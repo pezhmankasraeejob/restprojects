@@ -13,4 +13,12 @@ public class UniversityController {
     public String getTest(){
         return "Test is Successful!";
     }
+
+    @RequestMapping("/info")
+    public String getApplicationInformation(){
+        String result = "Programmer: Pezhman Kasraee\n"
+                + "Application Description: This is a Application to manage students and their course\n"
+                + "Technology: JDK 1.8 and RESTful architecture.";
+        return result;
+    }
 }
