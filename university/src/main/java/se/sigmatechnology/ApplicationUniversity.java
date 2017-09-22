@@ -8,10 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-public class UniversityApplication
+public class ApplicationUniversity
 {
+
     public static void main( String[] args )
     {
-        SpringApplication.run(UniversityApplication.class, args);
+//        logger.info("THIS IS A REAL LOGGER");
+        SpringApplication.run(ApplicationUniversity.class, args);
     }
 }
