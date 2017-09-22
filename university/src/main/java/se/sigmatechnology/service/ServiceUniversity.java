@@ -17,7 +17,6 @@ public class ServiceUniversity {
             "Application Description: This is a Application to manage students and their course<br>" +
             "Technology: JDK 1.8 and RESTful architecture.";
     private ArrayList al;
-    private HttpServletRequest request;
 
     public ServiceUniversity() {
         this.al = new ArrayList();
@@ -42,15 +41,20 @@ public class ServiceUniversity {
         return al;
     }
 
-    public String getClientIp(){
-        String remoteAddress = "";
+    public Student findStudent(String studentId){
+        Student student = new Student("000", "UNKNOWN", "UNKNOWN");
 
-        if (request != null) {
-            remoteAddress = request.getHeader("X-FORWARDED-FOR");
-            if (remoteAddress == null || "".equals(remoteAddress)) {
-                remoteAddress = request.getRemoteAddr();
+        for (Object temp : this.al)
+        {
+            Student tempStudent = (Student)temp;
+            if(tempStudent.getStudentId().equals(studentId)){
+                student.setStudentId(tempStudent.getStudentId());
+                student.setStudentFirstName(tempStudent.getStudentFirstName());
+                student.setStudentSurname(tempStudent.getStudentSurname());
+                student.setStudentBirthDate(tempStudent.getStudentBirthDate());
+                student.setStudentCountryOfBirth(tempStudent.getStudentCountryOfBirth());
             }
         }
-        return remoteAddress;
+        return student;
     }
 }

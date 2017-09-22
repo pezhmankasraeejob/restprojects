@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import se.sigmatechnology.LoggerUniversity;
+import se.sigmatechnology.component.ComponentUniversity;
 import se.sigmatechnology.entities.Student;
 import se.sigmatechnology.service.ServiceUniversity;
 
@@ -21,13 +22,16 @@ public class ControllerUniversity {
     @Autowired
     private ServiceUniversity serviceUniversity;
 
+    @Autowired
+    private ComponentUniversity componentUniversity;
+
     public ControllerUniversity() {
         this.serviceUniversity = new ServiceUniversity();
     }
 
     @RequestMapping("/test")
     public String getTest(){
-        this.loggerUniversity.sendTestInfo();
+        this.loggerUniversity.sendTestInfo(componentUniversity.getClientIp());
         return serviceUniversity.sendTestMessage();
     }
 
@@ -44,5 +48,10 @@ public class ControllerUniversity {
     @RequestMapping("/students")
     public ArrayList<Student> getAllStudents(){
         return this.serviceUniversity.getAllStudents();
+    }
+
+    @RequestMapping("/student/{sid}")
+    public Student getStudent(@PathVariable("sid") String studentId){
+        return serviceUniversity.findStudent(studentId);
     }
 }

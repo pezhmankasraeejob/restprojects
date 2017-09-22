@@ -13,4 +13,8 @@ public class LoggerUniversity {
     public void sendTestInfo(){
         logger.info("This is a test.");
     }
+
+    public void sendTestInfo(String ipAddress){
+        logger.info("This is a test. IP: %s", ipAddress);
+    }
 }
