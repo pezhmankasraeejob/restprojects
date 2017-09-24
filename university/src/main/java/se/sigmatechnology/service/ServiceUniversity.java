@@ -15,7 +15,7 @@ public class ServiceUniversity {
     private final String AUTHOR_INFO = "Programmer: Pezhman Kasraee<br>" +
             "Application Description: This is a Application to manage students and their course<br>" +
             "Technology: JDK 1.8 and RESTful architecture.";
-    private ArrayList database;
+    private ArrayList<Student> database;
 
     public ServiceUniversity() {
         this.database = new ArrayList();
@@ -55,5 +55,9 @@ public class ServiceUniversity {
             }
         }
         return student;
+    }
+
+    public void addStudent(Student student) {
+        this.database.add(student);
     }
 }

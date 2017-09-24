@@ -12,10 +12,22 @@ public class Student {
     public String studentCountryOfBirth;
     public Date studentBirthDate;
 
+    public Student(){
+        // TODO: 2017-09-24  
+    }
+    
     public Student(String studentId, String studentFirstName, String studentSurname) {
         this.studentId = studentId;
         this.studentFirstName = studentFirstName;
         this.studentSurname = studentSurname;
+    }
+
+    public Student(String studentId, String studentFirstName, String studentSurname, String studentCountryOfBirth, Date studentBirthDate) {
+        this.studentId = studentId;
+        this.studentFirstName = studentFirstName;
+        this.studentSurname = studentSurname;
+        this.studentCountryOfBirth = studentCountryOfBirth;
+        this.studentBirthDate = studentBirthDate;
     }
 
     public String getStudentId() {

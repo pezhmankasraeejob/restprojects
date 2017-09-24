@@ -1,9 +1,7 @@
 package se.sigmatechnology.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import se.sigmatechnology.LoggerUniversity;
 import se.sigmatechnology.component.ComponentUniversity;
 import se.sigmatechnology.entities.Student;
@@ -50,8 +48,13 @@ public class ControllerUniversity {
         return this.serviceUniversity.getAllStudents();
     }
 
-    @RequestMapping("/student/{sid}")
+    @RequestMapping("/students/{sid}")
     public Student getStudent(@PathVariable("sid") String studentId){
         return serviceUniversity.findStudent(studentId);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/students")
+    public void addStudent(@RequestBody Student student){
+        serviceUniversity.addStudent(student);
     }
 }
