@@ -57,4 +57,9 @@ public class ControllerUniversity {
     public void addStudent(@RequestBody Student student){
         serviceUniversity.addStudent(student);
     }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/students")
+    public void updateStudent(@RequestBody Student student){
+        serviceUniversity.updateStudent(student);
+    }
 }

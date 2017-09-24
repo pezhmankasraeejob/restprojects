@@ -60,4 +60,17 @@ public class ServiceUniversity {
     public void addStudent(Student student) {
         this.database.add(student);
     }
+
+    public void updateStudent(Student student) {
+
+        Student tempStudent = null;
+
+        for (Object temp : this.database) {
+            tempStudent = (Student) temp;
+            if (tempStudent.getStudentId().equals(student.getStudentId())){
+                this.database.remove(tempStudent);
+                this.database.add(student);
+            }
+        }
+    }
 }
