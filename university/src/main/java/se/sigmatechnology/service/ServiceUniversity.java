@@ -3,7 +3,6 @@ package se.sigmatechnology.service;
 import org.springframework.stereotype.Service;
 import se.sigmatechnology.entities.Student;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 /**
@@ -16,13 +15,13 @@ public class ServiceUniversity {
     private final String AUTHOR_INFO = "Programmer: Pezhman Kasraee<br>" +
             "Application Description: This is a Application to manage students and their course<br>" +
             "Technology: JDK 1.8 and RESTful architecture.";
-    private ArrayList al;
+    private ArrayList database;
 
     public ServiceUniversity() {
-        this.al = new ArrayList();
-        al.add(new Student("1000", "Kevin", "Tatu"));
-        al.add(new Student("2000", "Manfred", "Jönsson"));
-        al.add(new Student("3000", "Gunnar", "Gustafsson"));
+        this.database = new ArrayList();
+        database.add(new Student("1000", "Kevin", "Tatu"));
+        database.add(new Student("2000", "Manfred", "Jönsson"));
+        database.add(new Student("3000", "Gunnar", "Gustafsson"));
     }
 
     public String sendTestMessage() {
@@ -38,13 +37,13 @@ public class ServiceUniversity {
     }
 
     public ArrayList<Student> getAllStudents() {
-        return al;
+        return database;
     }
 
     public Student findStudent(String studentId){
         Student student = new Student("000", "UNKNOWN", "UNKNOWN");
 
-        for (Object temp : this.al)
+        for (Object temp : this.database)
         {
             Student tempStudent = (Student)temp;
             if(tempStudent.getStudentId().equals(studentId)){
