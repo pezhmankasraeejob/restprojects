@@ -73,4 +73,8 @@ public class ServiceUniversity {
             }
         }
     }
+
+    public void deleteStudent(String id) {
+        this.database.removeIf(t -> t.getStudentId().equals(id));
+    }
 }
